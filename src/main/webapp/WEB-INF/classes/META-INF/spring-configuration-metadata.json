@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "Config.AppProperties",
+      "sourceType": "Config.AppProperties"
+    },
+    {
+      "name": "app.auth",
+      "type": "Config.AppProperties$Auth",
+      "sourceType": "Config.AppProperties",
+      "sourceMethod": "getAuth()"
+    },
+    {
+      "name": "app.oauth2",
+      "type": "Config.AppProperties$OAuth2",
+      "sourceType": "Config.AppProperties",
+      "sourceMethod": "getOauth2()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.auth.token-expiration-msec",
+      "type": "java.lang.Long",
+      "sourceType": "Config.AppProperties$Auth",
+      "defaultValue": 0
+    },
+    {
+      "name": "app.auth.token-secret",
+      "type": "java.lang.String",
+      "sourceType": "Config.AppProperties$Auth"
+    },
+    {
+      "name": "app.oauth2.authorized-redirect-uris",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "Config.AppProperties$OAuth2"
+    }
+  ],
+  "hints": []
+}

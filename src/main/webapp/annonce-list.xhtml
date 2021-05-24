@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<style type="text/css">
+	.ui-filter-column .ui-column-customfilter .custom-filter {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	h5 {
+		font-family: "Andale Mono",serif;
+		font-weight: 700;
+
+	}
+</style>
+<ui:composition template="layout.xhtml">
+	<ui:define name="content">
+		<!--<h:form id="form">
+			<p:panel header="Nos Annonce">
+				<p:dataTable id="table" var="annonce" value="#{annonceList.annonces}">
+					<p:column>
+						<f:facet name="header"># Id</f:facet>
+						<h:outputText value="#{annonce.id}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">Name</f:facet>
+						<h:outputText value="#{annonce.name}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">Price</f:facet>
+						<h:outputText value="#{annonce.price}">
+							<f:convertNumber type="currency" currencySymbol="$ " />
+						</h:outputText>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>-->
+		<div class="card">
+			<h2 class="text-center m-3" style="font-weight: 700; color: cornflowerblue; font-family: 'Andale Mono',sans-serif;">Nos Annonces</h2>
+			<h:form>
+
+				<p:dataTable var="customer" value="#{annonceList.demandeLouers}" widgetVar="customersTable"
+                             emptyMessage="Annonces introvable"
+                             filteredValue="#{annonceList.demandeLouerList}">
+
+					<f:facet name="header">
+						<div class="p-d-flex p-ai-center p-jc-between">
+							<span>Rechercher:  </span>
+							<p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:10rem"
+										 placeholder="Que Cherche Vous? ...."/>
+						</div>
+					</f:facet>
+
+					<p:column headerText="Area" sortBy="#{customer.area}" filterBy="#{customer.area}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.area}"/>
+					</p:column>
+
+					<p:column headerText="Type" sortBy="#{customer.type}" filterBy="#{customer.type}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.type}"/>
+					</p:column>
+
+					<p:column headerText="Rooms" sortBy="#{customer.nbRooms}" filterBy="#{customer.nbRooms}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.nbRooms} Rooms"/>
+					</p:column>
+					<p:column headerText="Garage" sortBy="#{customer.nbGarage}" filterBy="#{customer.nbGarage}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.nbGarage} Garage"/>
+					</p:column>
+					<p:column headerText="Bathroom" sortBy="#{customer.nbBathroom}" filterBy="#{customer.nbBathroom}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+									  value="#{customer.nbBathroom} Bathrooms"/>
+					</p:column>
+					<p:column headerText="location" sortBy="#{customer.location}" filterBy="#{customer.location}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.location}"/>
+					</p:column>
+					<p:column headerText="Price" sortBy="#{customer.price}" filterBy="#{customer.price}">
+						<span class="flag flag-in" style="width: 30px; height: 20px"/>
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.price} DTN	"/>
+					</p:column>
+					<p:column headerText="#">
+						<p:button icon="pi pi-bookmark" styleClass="rounded-button ui-button-secondary mx-2" onclick="#{annonceList.addFavoris(customer.id)}"/>
+						<p:button id="btn" icon="pi pi-check" styleClass="rounded-button float-right"
+								  onclick="#{annonceList.louer(customer.id)}" value="Louer"/>
+					</p:column>
+
+					<!--<p:column field="rentingType" headerText="Renting Type" filterMatchMode="exact"
+							  sortBy="#{customer.rentingType}">
+						<f:facet name="filter">
+							<p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="custom-filter">
+								<f:selectItem itemLabel="All" itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="RENT" itemLabel="RENT" />
+								<f:selectItems value="HOLIDAY" itemLabel="HOLIDAY" />
+								<f:selectItems value="TEMPORARY" itemLabel="TEMPORARY " />
+							</p:selectOneMenu>
+						</f:facet>
+
+						<h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{customer.rentingType}" />
+					</p:column>-->
+
+					<!--<p:column field="date" headerText="Join Date" filterMatchMode="range">
+						<f:facet name="filter">
+							<p:datePicker selectionMode="range" onchange="PF('customersTable').filter()" />
+						</f:facet>
+					</p:column>-->
+
+					<!--<p:column field="status" headerText="Status" filterMatchMode="exact">
+						<f:facet name="filter">
+							<p:selectOneMenu onchange="PF('customersTable').filter()" styleClass="custom-filter">
+								<f:selectItem itemLabel="All" itemValue="#{null}" noSelectionOption="true" />
+								<f:selectItems value="#{dtFilterView.customerStatus}" />
+							</p:selectOneMenu>
+						</f:facet>
+
+						<span class="customer-badge status-#{customer.status.name().toLowerCase()}">#{customer.status.toString()}</span>
+					</p:column>-->
+
+					<!--<p:column headerText="Activity" sortBy="#{customer.activity}">
+						<p:progressBar value="#{customer.activity}" displayOnly="true" style="height: .5rem" />
+					</p:column>-->
+					<p:button icon="pi pi-bookmark" styleClass="rounded-button ui-button-secondary"/>
+					<p:button value="Louer" icon="pi pi-check" iconPos="right"/>
+				</p:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+</html>

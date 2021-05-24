@@ -26,9 +26,9 @@ import tn.esprit.spring.repository.AdvertisementRepository;
 @RequestMapping("/Advertisement")
 public class AdvertisementServiceImp implements IAdvertisementService {
 
-	@Autowired	
+	@Autowired
 	AdvertisementRepository AdRepository;
-	
+
 
 	@Override
 	@CrossOrigin
@@ -40,10 +40,10 @@ public class AdvertisementServiceImp implements IAdvertisementService {
 		User u1=new User();
 		ad.setUser(u1);
 		ad.setRemoved(false);
-		
+
 		AdRepository.save(ad);
-		 
-		 
+
+
 		return "Advertisement added with id"+ad.getId();
 	}
 
@@ -61,9 +61,9 @@ public class AdvertisementServiceImp implements IAdvertisementService {
 			System.out.println(a.toString());}
 		}
 		return List ;
-	
+
 	}
-	
+
 	@CrossOrigin
 	@DeleteMapping("/DeleteAd/{id}")
 	public String delete(@PathVariable Long id) {
@@ -72,8 +72,8 @@ public class AdvertisementServiceImp implements IAdvertisementService {
 			Advertisement objet = ad.get();
 			objet.setRemoved(true);
 			AdRepository.save(objet);}
-		return "Ad deleted with id : "+id;		
+		return "Ad deleted with id : "+id;
 	}
 
-	
+
 }

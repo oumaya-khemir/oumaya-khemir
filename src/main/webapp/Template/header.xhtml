@@ -26,10 +26,10 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/phone.png" alt=""/></div>+216 23755144</div>
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="images/mail.png" alt=""/></div><a href="mailto:fastsales@gmail.com">ConsomiTunsi@Esprit.tn</a></div>
 						<div class="top_bar_content ml-auto">
-					
+
 							<div class="top_bar_user">
 								<h:panelGroup rendered="#{empty loginController.userDetails}">
-							
+
 								<div class="user_icon"><img src="images/user.svg" alt=""/></div>
 								<div><a href="signup">Register</a></div>
 								<div><a href="login">Sign in</a></div>
@@ -42,12 +42,12 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 <h:commandLink value="  Log Out" action="#{loginController.doLogout()}" />
 </h:form>
 								</h:panelGroup>
-								
+
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<!-- Header Main -->
@@ -97,7 +97,7 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="images/heart.png" alt=""/></div>
 								<div class="wishlist_content">
-									<div class="wishlist_text"><a href="#">Wishlist</a></div>
+									<div class="wishlist_text"><a href="/fav">Wishlist</a></div>
 									<div class="wishlist_count">115</div>
 								</div>
 							</div>
@@ -106,12 +106,12 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 							<div class="cart">
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
-										<a href="/Cart"><img src="images/cart.png" alt=""/></a>
+										<a href="/advertisement"><img src="images/cart.png" alt=""/></a>
 										<div class="cart_count"><span><h:outputText value="#{cartController.numProduitPanier(loginController.userDetails.id)}"/></span></div>
 									</div>
 									<div class="cart_content">
-										<div class="cart_text"><a href="/Cart">Cart</a></div>
-											 <ui:repeat var="Commande" value="#{cartController.commandeencoursparClient(loginController.userDetails.id)}" varStatus="status"> 
+										<div class="cart_text"><a href="/advertisement">Cart</a></div>
+											 <ui:repeat var="Commande" value="#{cartController.commandeencoursparClient(loginController.userDetails.id)}" varStatus="status">
 									 <h:panelGroup rendered="#{Commande.pourcentageDeRemise==0}">
 										<div class="cart_price"><h:outputText  value="#{Commande.montant}"/>D</div>
 										</h:panelGroup>
@@ -127,14 +127,14 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Main Navigation -->
 
 		<nav class="main_nav">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						
+
 						<div class="main_nav_content d-flex flex-row">
 
 							<!-- Categories Menu -->
@@ -181,7 +181,7 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 									<li><h:link outcome="/acceuil">Home<i class="fas fa-chevron-down"></i></h:link></li>
 									<li class="hassubs">
 										<a href="visitvirtuel.jsf">Virtual Visit<i class="fas fa-chevron-down"></i></a>
-										
+
 									</li>
 <!-- 									<li class="hassubs"> -->
 <!-- 										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a> -->
@@ -211,8 +211,8 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
-									
-									
+
+
 									<!-- 									khayat -->
 									<li class="hassubs">
 										<a href="#">Charity<i class="fas fa-chevron-down"></i></a>
@@ -223,12 +223,12 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 										<a href="#">Charity<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li><a href="CharityUser.jsf">My Charities<i class="fas fa-chevron-down"></i></a></li>
-											
+
 										</ul>
 									</li>
 									</ul>
 									</li>
-									
+
 <!-- 									khayat -->
 									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
@@ -251,16 +251,16 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 				</div>
 			</div>
 		</nav>
-		
+
 		<!-- Menu -->
 
 		<div class="page_menu">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						
+
 						<div class="page_menu_content">
-							
+
 							<div class="page_menu_search">
 								<form action="#">
 									<input type="search" required="required" class="page_menu_search_input" placeholder="Search for products..."/>
@@ -327,7 +327,7 @@ value="Good Morning #{loginController.userDetails.firstName} #{loginController.u
 								<li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
 								<li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
 							</ul>
-							
+
 							<div class="menu_contact">
 								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""/></div>+38 068 005 3570</div>
 								<div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""/></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>

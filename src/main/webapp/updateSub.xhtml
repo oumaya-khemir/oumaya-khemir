@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="/template/template.xhtml">
+<ui:param name="page_name" value="Accueil" />
+<ui:define name="content">
+
+<h:head>  
+<title>Edit Your Record</title>  
+<h:outputStylesheet name="/css/bootstrap.min.css"/>  
+</h:head>  
+<h:body>  
+<h:form id="form" class="form-horizontal">  
+<div class="form-group">  
+<div class="col-sm-2"></div>  
+<h2 style="text-align: center" class="col-sm-4">Edit Subscription details</h2>  
+</div> 
+<div class="form-group">  
+<h:outputLabel for="title" class="control-label col-sm-2">Subscription title</h:outputLabel>  
+<div class="col-sm-4">  
+<h:inputText id="title-id" value="#{editSub.subscription_title}" class="form-control"/>  
+</div>  
+</div> 
+<div class="form-group">  
+<h:outputLabel for="price" class="control-label col-sm-2">Subscription price</h:outputLabel>  
+<div class="col-sm-4">  
+<h:inputText id="price-id" value="#{editSub.subscription_price}" class="form-control"/>  
+</div>  
+</div> 
+<div class="form-group">  
+<h:outputLabel for="offer" class="control-label col-sm-2">Subscription offer</h:outputLabel>  
+<div class="col-sm-4">  
+<h:inputText id="offer-id" value="#{editSub.subscription_offer}" class="form-control"/>  
+</div>  
+</div> 
+<div class="form-group">  
+<div class="col-sm-2"></div>  
+<div class="col-sm-4">  
+<h:commandButton value="Update" action="#{subscriptionController.updateSubb(editSub)}"   
+class="btn btn-primary" style="width: 80px;"></h:commandButton>  
+</div>  
+</div>  
+</h:form> 
+</h:body>
+</ui:define>
+</ui:composition>
+

@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="/template/template.xhtml">
+<ui:param name="page_name" value="Accueil" />
+<ui:define name="content">
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Subscription title"></h:outputText></td><td>
+
+<h:inputText  value="#{subscriptionController.subscription_title}" required="true" requiredMessage="title">
+
+</h:inputText></td></tr>
+<tr><td><h:outputText value="Subscription Price"></h:outputText></td>
+<td><h:inputText value="#{subscriptionController.subscription_price}" required="true" requiredMessage="price"></h:inputText></td></tr>
+<tr><td><h:outputText value="Subscription descritpion"></h:outputText></td>
+<td><h:inputText value="#{subscriptionController.subscription_offer}" required="true" requiredMessage="description"></h:inputText></td></tr>
+
+
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter Abonnement"
+action="#{subscriptionController.addSubscription()}" />
+<h:commandButton value="update sub"
+action="#{subscriptionController.edit(subscriptionController.subscription_id)}" /></td></tr>
+
+</table></h:form></h:panelGroup>
+</ui:define>
+</ui:composition>
+
+
+
+
+
+

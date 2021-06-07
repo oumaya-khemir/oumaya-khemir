@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+xmlns:p="http://primefaces.org/ui"
+template="/template/template.xhtml">
+<ui:param name="page_name" value="Accueil" />
+<ui:define name="content">
+<!-- BEGIN : TP1 JSF Introduction Login -->
+<h:head>  
+<title>User Details</title>  
+<h:outputStylesheet name="/css/bootstrap.min.css"/>  
+<style type="text/css">  
+table {  
+border-collapse: collapse;  
+width: 100%;  
+}  
+th, td {  
+text-align: left;  
+padding: 8px;  
+}  
+  
+tr:nth-child(even){background-color: #f2f2f2}  
+th {  
+background-color: #4CAF50;  
+color: white;  
+}  
+</style>  
+</h:head>
+<h:panelGroup columns="2">
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:inputText  value="#{subscriptionController.word}">
+<tr><h:commandButton value="Rechercher" action="#{subscriptionController.Search(word)}" /></tr>
+</h:inputText></td></tr>
+</table></h:form></h:panelGroup>
+
+<h:form>
+
+<h:dataTable class="table" value="#{subscriptionController.getAllSubs()}" var="subs" border="1">
+<h:column><f:facet name="header"><h:outputText value="title" /></f:facet>
+<h:outputText value="#{subs.subscription_title}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="description" /></f:facet>
+<h:outputText value="#{subs.subscription_offer}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="price" /></f:facet>
+<h:outputText value="#{subs.subscription_price}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="duration" /></f:facet>
+<h:outputText value="#{subs.subscription_duration}" /></h:column>
+<h:column>
+<f:facet name="header"><h:outputText value="Subscribe" /></f:facet>
+<h:commandButton  action="#{subscriptionController.AddS(1,1,subs.subscription_duration,subs.subscription_duration)}"
+value="Subscribe" />
+
+
+</h:column>
+
+
+     
+</h:dataTable>
+</h:form>
+</h:panelGroup>
+
+
+</ui:define>
+
+</ui:composition>
